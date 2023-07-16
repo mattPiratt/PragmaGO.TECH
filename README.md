@@ -42,12 +42,12 @@ php solution.php --term 24 --amount 2750
 - this code requires PHP 8.2 and Composer version 2.5
 - Fee definitions for given ranges are in "fixtures" dir, CSV files. It can be modified to any number of ranges with any fee values
 - I have provided multiple unit tests, that confirm if the calculations are ok in a few different ways
-- by checking the fee value
-- by checking the sum of loan+fee
-- by checking if loan+fee are multiple of 5
-- by checking the "out of range" scenario
+  - by checking the fee value
+  - by checking the sum of loan+fee
+  - by checking if loan+fee are multiple of 5
+  - by checking the "out of range" scenario
 - this requirement "The fee should be rounded up such that fee + loan amount is an exact multiple of 5" was unclear to me. Hope I got it right and the implementation represents it
-- there is no Struct in PHP, but to create a contract between findNearFeeRanges() function, that returns some data structure, and calculateFee() that requires it, I have created NearFeeRangesStruct that simulates something similar to Struct (see this RFC: https://wiki.php.net/rfc/structs)
+- there is no Struct in PHP, but to create a contract between `findNearFeeRanges()` function, that returns some data structure, and `calculateFee()` that requires it, I have created `NearFeeRangesStruct` that simulates something similar to Struct (see this RFC: https://wiki.php.net/rfc/structs)
 - to be a little fancy, I have used PHP8.2 new feature of Constructor Property Promotion ( RFC: https://wiki.php.net/rfc/constructor_promotion ). It is in src/Model/NearFeeRangesStruct.php:
 - I've made modifications, so that ranges of 1,000~20,000 are not fixed, but red from the ranges definitions (CSV files)
 - In general, I have tried to write multiple objects and interfaces to show some of OOP, but I did not want to go too far (by forcing patterns like Factory, Adapter, Singleton, etc., or by using abstract classes). My goal was to deliver dome of the DRY, KISS and SOLID principles, but without overdoing it.
