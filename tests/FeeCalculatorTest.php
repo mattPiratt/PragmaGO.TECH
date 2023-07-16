@@ -19,7 +19,7 @@ final class FeeCalculatorTest extends TestCase
         $this->feeDefinitionsStorage = initFeeDefinitionsStorage();
     }
 
-    public function calculateCorrectnessDataProvider()
+    public function calculateCorrectnessDataProvider(): array
     {
         return [
             [24, 2750, 115],
@@ -32,7 +32,7 @@ final class FeeCalculatorTest extends TestCase
     /**
      * @dataProvider calculateCorrectnessDataProvider
      */
-    public function testCalculateCorrectness($term, $amount, $expectedFee): void
+    public function testCalculateCorrectness(int $term, float $amount, float $expectedFee): void
     {
         $application = new LoanProposal($term, $amount);
         $calculator = new FeeCalculator($this->feeDefinitionsStorage);
@@ -46,7 +46,7 @@ final class FeeCalculatorTest extends TestCase
      * Requirement:
      * - The fee should be rounded up such that fee + loan amount is an exact multiple of 5.
      */
-    public function testTheSumIsAlwaysMultipleOf5($term, $amount, $expectedFee): void
+    public function testTheSumIsAlwaysMultipleOf5(int $term, float $amount, float $expectedFee): void
     {
         $application = new LoanProposal($term, $amount);
         $calculator = new FeeCalculator($this->feeDefinitionsStorage);
@@ -58,7 +58,7 @@ final class FeeCalculatorTest extends TestCase
     }
 
 
-    public function loanOutOfRangeDataProvider()
+    public function loanOutOfRangeDataProvider(): array
     {
         return [
             [24, 100, 0],
@@ -71,7 +71,7 @@ final class FeeCalculatorTest extends TestCase
      * Requirement:
      * - The minimum amount for a loan is 1,000 PLN, and the maximum is 20,000 PLN.
      */
-    public function testLoanOutOfRange($term, $amount, $expectedFee): void
+    public function testLoanOutOfRange(int $term, float $amount, float $expectedFee): void
     {
         $this->expectException(InvalidArgumentException::class);
 
@@ -81,7 +81,7 @@ final class FeeCalculatorTest extends TestCase
     }
 
 
-    public function sumIsAlwaysARoundNumberDataProvider()
+    public function sumIsAlwaysARoundNumberDataProvider(): array
     {
         return [
             [12, 2578.98543, 2670],
@@ -94,7 +94,7 @@ final class FeeCalculatorTest extends TestCase
      * Requirement:
      * - fee + loan amount is always a round number
      */
-    public function testSumIsAlwaysARoundNumber($term, $amount, $expectedSum): void
+    public function testSumIsAlwaysARoundNumber(int $term, float $amount, float $expectedSum): void
     {
         $application = new LoanProposal($term, $amount);
         $calculator = new FeeCalculator($this->feeDefinitionsStorage);

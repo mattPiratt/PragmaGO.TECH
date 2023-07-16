@@ -16,11 +16,10 @@ $longopts  = array(
 );
 $options = getopt('', $longopts);
 
-//and validate if the options are correct
 $amount = (float)round((float)$options['amount'], 2);
-if ($amount < 1000 or $amount > 20000) die("Incorrect input. Aborting" . PHP_EOL);
 $term = intval($options['term']);
-$term = ($term == 12 or $term == 24) ? $term : die("Incorrect input. Aborting" . PHP_EOL);
+//and validate if the term is correct
+if (!($term == 12 or $term == 24)) die("Incorrect input. Aborting" . PHP_EOL);
 
 $feeDefinitionsStorage = initFeeDefinitionsStorage();
 $application = new LoanProposal($term, $amount);

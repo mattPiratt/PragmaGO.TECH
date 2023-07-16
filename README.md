@@ -31,13 +31,15 @@ A database or any other external dependency is not required for this test.
 
 ```bash
 composer install
+# run the code with 2 input parameters
 php solution.php --term 24 --amount 2750
+# run tests
 ./vendor/bin/phpunit tests/
 ```
 
 # Developer notes
 
-- this code requires PHP 8.2
+- this code requires PHP 8.2 and Composer version 2.5
 - Fee definitions for given ranges are in "fixtures" dir, CSV files. It can be modified to any number of ranges with any fee values
 - I have provided multiple unit tests, that confirm if the calculations are ok in a few different ways
 - by checking the fee value

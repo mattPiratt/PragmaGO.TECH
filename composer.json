@@ -3,8 +3,8 @@
     "type": "project",
     "authors": [
         {
-            "name": "Piotr Ścibor",
-            "email": "piotr.scibor@pragmago.tech"
+            "name": "Bartosz Kubek",
+            "email": "kubek.bartosz@gmail.com"
         }
     ],
     "autoload": {
