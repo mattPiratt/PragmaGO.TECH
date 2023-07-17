@@ -9,7 +9,7 @@ use PragmaGoTech\Interview\Model\LoanProposal;
 interface FeeCalculatorInterface
 {
     /**
-     * @return float The calculated total fee.
+     * Calculates fee for given Loan proposal
      */
     public function calculate(LoanProposal $application): float;
 }
