@@ -38,15 +38,11 @@ class FeeCalculator implements FeeCalculatorInterface
      */
     private function calculateFee(NearFeeRangesStruct $nearFeeRanges, float $amount): float
     {
-        // Calculate factor
-        $factor = ($nearFeeRanges->highEndFee - $nearFeeRanges->lowEndFee) / ($nearFeeRanges->highEndAmount - $nearFeeRanges->lowEndAmount);
-
-        // calculate shift
-        $shift = $nearFeeRanges->lowEndFee - ($factor * $nearFeeRanges->lowEndAmount);
-
-        // calculate value for $resultFee
+        $factor = ($nearFeeRanges->highEndFee - $nearFeeRanges->lowEndFee)
+            / ($nearFeeRanges->highEndAmount - $nearFeeRanges->lowEndAmount);
+        $shift = $nearFeeRanges->lowEndFee
+            - ($factor * $nearFeeRanges->lowEndAmount);
         $resultFee = round($factor * $amount + $shift, 2);
-
         return self::roundUpToMultipleOf5($resultFee, $amount);
     }
 
