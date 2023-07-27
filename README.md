@@ -61,8 +61,8 @@ php solution.php --term 24 --amount 2750
   - Avoid Global Variables
 - this code features SOLID principles
   - Single Responsibility Principle - separate class for loading data from file, seperate that delivers Fee definitions to calculator
-  - Open/Closed Principle - eg: FeeDefinitionsInterface
-  - Liskov Substitution Principle - CsvFeeDefinitionsRepository and JsonFeeDefinitionsRepository
-  - Interface Segregation Principl: FeeDefinitionsInterface, FeeDefinitionsStorageInterface
-  - Dependency Inversion Principle: Repository pattern for FeeDefinitionsRepositoryInterface, and specific class of CsvFeeDefinitionsRepository and JsonFeeDefinitionsRepository
+  - Open/Closed Principle - eg: `FeeDefinitionsInterface`
+  - Liskov Substitution Principle - `CsvFeeDefinitionsRepository` and `JsonFeeDefinitionsRepository`
+  - Interface Segregation Principl: `FeeDefinitionsInterface`, `FeeDefinitionsStorageInterface`
+  - Dependency Inversion Principle: Repository pattern for `FeeDefinitionsRepositoryInterface`, and specific class of `CsvFeeDefinitionsRepository` and `JsonFeeDefinitionsRepository`
 - I ran this code on MacOS with PHP installed from brew, and composer installed locally. If you run into trouble starting this code, please let me know
