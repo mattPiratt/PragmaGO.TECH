@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use PragmaGoTech\Interview\Model\LoanProposal;
-use PragmaGoTech\Interview\FeeCalculator;
+use MattPiratt\Interview\Model\LoanProposal;
+use MattPiratt\Interview\FeeCalculator;
 
 define('ROOT_PATH', __DIR__ . '/../');
 require_once ROOT_PATH . 'sunrise.php';

@@ -1,5 +1,5 @@
 {
-    "name": "pragmagotech/interview",
+    "name": "mattpiratt/interview",
     "type": "project",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PragmaGoTech\\Interview\\": "src/"
+            "MattPiratt\\Interview\\": "src/"
         }
     },
     "require-dev": {

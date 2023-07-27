@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use PragmaGoTech\Interview\Model\FeeDefinitions;
-use PragmaGoTech\Interview\Model\FeeDefinitionsStorage;
-use PragmaGoTech\Interview\Model\CsvFeeDefinitionsRepository;
-use PragmaGoTech\Interview\Model\JsonFeeDefinitionsRepository;
+use MattPiratt\Interview\Model\FeeDefinitions;
+use MattPiratt\Interview\Model\FeeDefinitionsStorage;
+use MattPiratt\Interview\Model\CsvFeeDefinitionsRepository;
+use MattPiratt\Interview\Model\JsonFeeDefinitionsRepository;
 
 function initFeeDefinitionsStorage(): FeeDefinitionsStorage
 {

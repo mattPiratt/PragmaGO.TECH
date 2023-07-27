@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PragmaGoTech\Interview\Model;
+namespace MattPiratt\Interview\Model;
 
 /**
  * This class is a Data structure, to create a contract

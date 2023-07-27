@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PragmaGoTech\Interview\Model;
+namespace MattPiratt\Interview\Model;
 
-use PragmaGoTech\Interview\Model\FeeDefinitionsInterface;
+use MattPiratt\Interview\Model\FeeDefinitionsInterface;
 
 /**
  * A cut down version of a loan application containing

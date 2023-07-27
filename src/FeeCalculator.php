@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PragmaGoTech\Interview;
+namespace MattPiratt\Interview;
 
-use PragmaGoTech\Interview\Model\LoanProposal;
-use PragmaGoTech\Interview\Model\NearFeeRangesStruct;
-use PragmaGoTech\Interview\Model\FeeDefinitionsStorage;
+use MattPiratt\Interview\Model\LoanProposal;
+use MattPiratt\Interview\Model\NearFeeRangesStruct;
+use MattPiratt\Interview\Model\FeeDefinitionsStorage;
 
 
 class FeeCalculator implements FeeCalculatorInterface

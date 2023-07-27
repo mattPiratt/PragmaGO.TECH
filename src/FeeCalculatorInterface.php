@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PragmaGoTech\Interview;
+namespace MattPiratt\Interview;
 
-use PragmaGoTech\Interview\Model\LoanProposal;
+use MattPiratt\Interview\Model\LoanProposal;
 
 interface FeeCalculatorInterface
 {

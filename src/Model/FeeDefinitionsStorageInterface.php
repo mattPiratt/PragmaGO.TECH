@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PragmaGoTech\Interview\Model;
+namespace MattPiratt\Interview\Model;
 
 interface FeeDefinitionsStorageInterface
 {
