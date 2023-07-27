@@ -9,10 +9,10 @@ interface FeeDefinitionsStorageInterface
     /**
      * Gets the definitions for loan in given $term
      */
-    public function getFeeDefinitions(int $term): FeeDefinitions;
+    public function get(int $term): FeeDefinitions;
 
     /**
      * Sets definitions for loan (in given term) in the storage
      */
-    public function setFeeDefinitions(int $term, FeeDefinitions $feeDefinitions): void;
+    public function set(int $term, FeeDefinitions $feeDefinitions): void;
 }

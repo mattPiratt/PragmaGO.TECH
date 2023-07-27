@@ -19,8 +19,8 @@ function initFeeDefinitionsStorage(): FeeDefinitionsStorage
     $term24Defs = new FeeDefinitions($dataTerm24);
 
     $feeDefinitionsStorage = new FeeDefinitionsStorage();
-    $feeDefinitionsStorage->setFeeDefinitions(FeeDefinitionsStorage::TERM12, $term12Defs);
-    $feeDefinitionsStorage->setFeeDefinitions(FeeDefinitionsStorage::TERM24, $term24Defs);
+    $feeDefinitionsStorage->set(FeeDefinitionsStorage::TERM12, $term12Defs);
+    $feeDefinitionsStorage->set(FeeDefinitionsStorage::TERM24, $term24Defs);
 
     return $feeDefinitionsStorage;
 }

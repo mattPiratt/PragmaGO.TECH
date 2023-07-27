@@ -30,12 +30,12 @@ class FeeDefinitions implements FeeDefinitionsInterface
     }
 
     /**
-     * Find two neighbour ranges close to given $amoubnt, 
+     * Find two neighbour ranges close to given $amount, 
      * that can be later used to calculate exact fee
      */
     public function findNearFeeRanges(float $amount): NearFeeRangesStruct
     {
-        //check the Amount if is in the range (automaticle in context of defined ranges)
+        //check the Amount if is in the accepted range 
         reset($this->definitions);
         $firstKey = key($this->definitions);
         end($this->definitions);
@@ -50,9 +50,8 @@ class FeeDefinitions implements FeeDefinitionsInterface
         foreach ($this->definitions as $defAmount => $defFee) {
 
             if ($defAmount >= $amount) {
-                //found the right record.
 
-                // case when the amount is located in the edge of the FeeCalculatorDefTable
+                // case when the amount is located in the edge of the FeeCalculator definition table
                 if ($iterator == 0) {
                     $prevKey = $keys[$iterator];
                 } else {
@@ -61,12 +60,12 @@ class FeeDefinitions implements FeeDefinitionsInterface
                 $lowEndFee = $this->definitions[$prevKey];
                 $lowEndAmount = $prevKey;
 
-                // Lets find the next amount
+                // Lets find the next nearest Amount
                 $highEndFee = $defFee;
                 $highEndAmount = $defAmount;
                 return new NearFeeRangesStruct($lowEndFee, $highEndFee, $lowEndAmount, $highEndAmount);
             }
-            //track the shift in the FeeCalculatorDefTable
+            //track the shift in the FeeCalculator definition table
             $iterator++;
         }
         throw new \Exception("This should not happen. Amount:" . $amount);

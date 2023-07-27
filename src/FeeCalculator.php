@@ -24,7 +24,7 @@ class FeeCalculator implements FeeCalculatorInterface
         $term = $application->term();
 
         $nearFeeRanges = $this->feeDefinitions
-            ->getFeeDefinitions($term)
+            ->get($term)
             ->findNearFeeRanges($amount);
 
         $resultFee = $this->calculateFee($nearFeeRanges, $amount);
@@ -39,13 +39,13 @@ class FeeCalculator implements FeeCalculatorInterface
     private function calculateFee(NearFeeRangesStruct $nearFeeRanges, float $amount): float
     {
         // Calculate factor
-        $a = ($nearFeeRanges->highEndFee - $nearFeeRanges->lowEndFee) / ($nearFeeRanges->highEndAmount - $nearFeeRanges->lowEndAmount);
+        $factor = ($nearFeeRanges->highEndFee - $nearFeeRanges->lowEndFee) / ($nearFeeRanges->highEndAmount - $nearFeeRanges->lowEndAmount);
 
         // calculate shift
-        $b = $nearFeeRanges->lowEndFee - ($a * $nearFeeRanges->lowEndAmount);
+        $shift = $nearFeeRanges->lowEndFee - ($factor * $nearFeeRanges->lowEndAmount);
 
         // calculate value for $resultFee
-        $resultFee = round($a * $amount + $b, 2);
+        $resultFee = round($factor * $amount + $shift, 2);
 
         return self::roundUpToMultipleOf5($resultFee, $amount);
     }

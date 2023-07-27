@@ -12,12 +12,12 @@ class FeeDefinitionsStorage implements FeeDefinitionsStorageInterface
 
     private $feeDefinitions = [];
 
-    public function getFeeDefinitions(int $term): FeeDefinitions
+    public function get(int $term): FeeDefinitions
     {
         return $this->feeDefinitions[$term];
     }
 
-    public function setFeeDefinitions(int $term, FeeDefinitions $feeDefinitions): void
+    public function set(int $term, FeeDefinitions $feeDefinitions): void
     {
         if ($term != self::TERM12 and $term != self::TERM24) {
             throw new \InvalidArgumentException("Term parameter must be one of: 12 or 24 months.");
